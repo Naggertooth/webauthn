@@ -48,7 +48,7 @@ class AssertionChallengeBuilder {
     }
 
     // Add credential request
-    allowCredentials.push({ type, id, transports })
+    allowCredentials.push({ type, id, transports: AuthenticatorTransport.INTERNAL })
 
     this.result.allowCredentials = allowCredentials
     return this

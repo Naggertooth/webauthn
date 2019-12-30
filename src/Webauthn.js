@@ -150,9 +150,11 @@ class Webauthn {
             message: 'user does not exist',
           })
         }
+        
+        console.log("User: ", user)
 
         const assertion = new AssertionChallengeBuilder(this)
-          .addAllowedCredential({ id: user.authenticator.credID })
+          .addAllowedCredential({ id: user.id })
           .build({ status: 'ok' })
 
         req.session.challenge = assertion.challenge
